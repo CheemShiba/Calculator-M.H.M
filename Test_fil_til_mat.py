@@ -42,9 +42,9 @@ class Lommeregner():
 
         # ...
 
-        print("Context: Sorting data using the strategy (not sure how it'll do it)")
+        #print("Context: Sorting data using the strategy (not sure how it'll do it)")
         result = self._operator.do_operate(a,b)
-        print("Result",result)
+        print("Resultat:",result)
 
         # ...
 
@@ -62,13 +62,22 @@ class Operator(ABC):
     def do_operate(self, a: float,b: float) -> float:
         pass
 
-class Plus_operater(Operator):
+class Plus_operate(Operator):
     def do_operate(self, a: float,b: float) -> float:
         return a + b
 
-class Minus_operater(Operator):
+class Minus_operate(Operator):
     def do_operate(self, a: float,b: float) -> float:
         return a - b   
+
+class Gange_operate(Operator):
+    def do_operate(self, a: float,b: float) -> float:
+        return a * b  
+    
+class Devider_operate(Operator):
+    def do_operate(self, a: float,b: float) -> float:
+        return a / b  
+
 
 
 """
@@ -81,11 +90,17 @@ if __name__ == "__main__":
     # The client should be aware of the differences between strategies in order
     # to make the right choice.
 
-    context = Lommeregner(Plus_operater())
-    print("Client: Strategy is set to normal sorting.")
-    context.lommeregner()
+    context = Lommeregner(Plus_operate())
+    #print("Client: Strategy is set to normal sorting.")
+    context.lommeregner(5,3)
     print()
 
-    print("Client: Strategy is set to reverse sorting.")
-    context.operator = Minus_operater()
-    context.lommeregner()
+    #print("Client: Strategy is set to reverse sorting.")
+    context.operator = Minus_operate()
+    context.lommeregner(5,3)
+
+    context.operator = Gange_operate()
+    context.lommeregner(5,3)
+
+    context.operator = Devider_operate()
+    context.lommeregner(5,3)
