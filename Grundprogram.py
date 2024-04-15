@@ -7,11 +7,22 @@ root.geometry("1570x800")
 root.resizable(False,False)
 root.configure(bg="grey20")
 
+regn = ""
+def show(value):
+    global regn
+    regn+=value
+    res_label.config(text=regn)
+
+def clear(value):
+    global regn
+    regn = ""
+    res_label.config(text=regn)
+
 res_label= Label(root, width=50, height=5, text="", font=("Aptos"), bg="white")
 res_label.place(x=60, y=0)
 
-Button(root, text="C", width=5, height=1, font=("Aptos", 30, "bold"), bd=1, fg="red", bg="gray12").place(x=10, y=100)
-Button(root, text="reset", width=5, height=1, font=("Aptos", 30, "bold"), bd=1, fg="dim gray", bg="gray12").place(x=150, y=100)
+Button(root, text="C", width=5, height=1, font=("Aptos", 30, "bold"), bd=1, fg="red", bg="gray12",command=lambda: clear()).place(x=10, y=100)
+Button(root, text="reset", width=5, height=1, font=("Aptos", 30, "bold"), bd=1, fg="dim gray", bg="gray12",command=lambda: show("/")).place(x=150, y=100)
 Button(root, text="/", width=5, height=1, font=("Aptos", 30, "bold"), bd=1, fg="dim gray", bg="gray12").place(x=290, y=100)
 Button(root, text="x", width=5, height=1, font=("Aptos", 30, "bold"), bd=1, fg="dim gray", bg="gray12").place(x=430, y=100)
 
