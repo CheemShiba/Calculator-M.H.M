@@ -3,7 +3,7 @@ import numpy as np
 
 # Define the function
 def my_function(x):
-    return 300*x**3+2
+    return 620*x**3+21
 
 # Generate x values
 x_values = np.linspace(-5, 5, 20)  # Generate 100 points between -5 and 5
@@ -13,7 +13,7 @@ y_values = my_function(x_values)
 
 # Plot the graph
 plt.plot(x_values, y_values)
-plt.title('Graph of y = x^2')
+plt.title('Graph')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.grid(True)
