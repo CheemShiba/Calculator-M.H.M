@@ -99,7 +99,7 @@ if __name__ == "__main__":
 	# location inside the root window . 
 	# when user press the button, the command or 
 	# function affiliated to that button is executed . 
-	button1 = Button(gui, font=('Arial', 16), text=' 1 ', fg='black', bg='red', 
+	button1 = Button(gui, font=('Arial', 16), text=' 1	 ', fg='black', bg='red', 
 					command=lambda: press(1), height=3, width=15) 
 	button1.grid(row=2, column=0) 
 
