@@ -2,6 +2,42 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import List
 
+L=[]
+button_states = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9]
+
+def knap_trykket(button_index):
+   if button_states[button_index]:
+     L.append(button_index)
+    
+def nul_trykket():
+    button_pressed(0)
+
+def et_trykket():
+    button_pressed(1)
+
+def to_trykket():
+    button_pressed(2)
+
+def tre_trykket():
+    button_pressed(3)
+
+def fire_trykket():
+    button_pressed(4)
+
+def fem_trykket():
+    button_pressed(5)
+
+def seks_trykket():
+    button_pressed(6)
+
+def syv_trykket():
+    button_pressed(7)
+
+def otte_trykket():
+    button_pressed(8)
+
+def ni_trykket():
+    button_pressed(9)
 
 class Lommeregner():
     """
