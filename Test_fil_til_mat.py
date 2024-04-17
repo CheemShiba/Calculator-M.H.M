@@ -2,6 +2,59 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import List
 
+l = []
+
+button_states = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,buttonplus, buttonminus]
+
+def button_pressed(button_index):
+    if button_states[button_index]:
+        l.append(button_index)
+
+def nul_trykket():
+    button_pressed(0)
+
+def et_trykket():
+    button_pressed(1)
+
+def to_trykket():
+    button_pressed(2)
+
+def tre_trykket():
+    button_pressed(3)
+
+def fire_trykket():
+    button_pressed(4)
+
+def fem_trykket():
+    button_pressed(5)
+
+def seks_trykket():
+    button_pressed(6)
+
+def syv_trykket():
+    button_pressed(7)
+
+def otte_trykket():
+    button_pressed(8)
+
+def ni_trykket():
+    button_pressed(9)
+
+def createOperend():
+    j = len(l)
+    n=0
+    for i in range(j):
+        n += l[i]*10**(j-1)
+    return n 
+
+def buttonplus():
+    plusOperater=Plus_operate()
+    plusOperater.set_a(createOperend())
+
+def buttonminus():
+    minusOperater=Minus_operate()
+    minusOperater.set_a(createOperend())
+
 
 class Lommeregner():
     """
@@ -63,12 +116,17 @@ class Operator(ABC):
         pass
 
 class Plus_operate(Operator):
-    def do_operate(self, a: float,b: float) -> float:
-        return a + b
+    def do_operate(self) -> float:
+        #return a + b
+    def set_a(self,a):
+        self.a=a 
+
 
 class Minus_operate(Operator):
-    def do_operate(self, a: float,b: float) -> float:
-        return a - b   
+    def do_operate(self, a) -> float:
+        #return a - b   
+    def set_a(self,a):
+        self.a=a
 
 class Gange_operate(Operator):
     def do_operate(self, a: float,b: float) -> float:
