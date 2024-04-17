@@ -2,13 +2,14 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import List
 
-L=[]
-button_states = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9]
+l = []
 
-def knap_trykket(button_index):
-   if button_states[button_index]:
-     L.append(button_index)
-    
+button_states = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,buttonplus, buttonminus]
+
+def button_pressed(button_index):
+    if button_states[button_index]:
+        l.append(button_index)
+
 def nul_trykket():
     button_pressed(0)
 
@@ -99,12 +100,17 @@ class Operator(ABC):
         pass
 
 class Plus_operate(Operator):
-    def do_operate(self, a: float,b: float) -> float:
-        return a + b
+    def do_operate(self) -> float:
+        #return a + b
+    def set_a(self,a):
+        self.a=a 
+
 
 class Minus_operate(Operator):
-    def do_operate(self, a: float,b: float) -> float:
-        return a - b   
+    def do_operate(self, a) -> float:
+        #return a - b   
+    def set_a(self,a):
+        self.a=a
 
 class Gange_operate(Operator):
     def do_operate(self, a: float,b: float) -> float:
