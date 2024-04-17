@@ -40,22 +40,6 @@ def otte_trykket():
 def ni_trykket():
     button_pressed(9)
 
-def createOperend():
-    j = len(l)
-    n=0
-    for i in range(j):
-        n += l[i]*10**(j-1)
-    return n 
-
-def buttonplus():
-    plusOperater=Plus_operate()
-    plusOperater.set_a(createOperend())
-
-def buttonminus():
-    minusOperater=Minus_operate()
-    minusOperater.set_a(createOperend())
-
-
 class Lommeregner():
     """
     The Context defines the interface of interest to clients.
