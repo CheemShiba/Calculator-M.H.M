@@ -4,7 +4,7 @@ from typing import List
 
 l = []
 
-button_states = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,buttonplus, buttonminus,buttom=]
+button_states = [button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,buttonplus, buttonminus,buttomligmed]
 
 def button_pressed(button_index):
     if button_states[button_index]:
@@ -47,13 +47,18 @@ def createOperend():
         n += l[i]*10**(j-1)
     return n 
 
-def buttonplus():
+def buttonPlus():
+    button_pressed(buttonplus)
     plusOperater=Plus_operate()
     plusOperater.set_a=createOperend()
 
 def buttonminus():
+    button_pressed(buttonminus)
     minusOperater=Minus_operate()
     minusOperater.set_a=createOperend()
+
+def buttonLigmed():
+    button_pressed(buttonligmed)
 
 class Lommeregner():
     """
