@@ -32,8 +32,8 @@ def beregn():
     else:
         res_label.config(text="")
         
-res_label = Label(root, width=50, height=5, text="", font=("Arial", 20), bg="white", fg="black")
-res_label.place(x=60, y=0)
+res_label = Label(root, width=30, height=2, text="", font=("Arial", 20), bg="white", fg="black")
+res_label.place(x=40, y=0)
 
 Button(root, text="C", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="red", bg="gray12", command=clear).place(x=10, y=100)
 
