@@ -16,7 +16,8 @@ class CalculatorApp:
             ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
             ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
             ('1', 3, 0), ('2', 3, 1), ('3', 3, 2), ('-', 3, 3),
-            ('0', 4, 0), ('.', 4, 1), ('=', 4, 2), ('+', 4, 3)
+            ('0', 4, 0), ('.', 4, 1), ('=', 4, 2), ('+', 4, 3),
+            ('reset', 5, 0)  # Reset button in the grid
         ]
 
         for (text, row, col) in buttons:
@@ -32,7 +33,7 @@ class CalculatorApp:
 
     def create_button(self, text, row, col):
         button = tk.Button(self.master, text=text, width=5, height=2,
-                           command=lambda: self.on_button_click(text))
+                           command=lambda text=text: self.on_button_click(text))
         button.grid(row=row, column=col, padx=5, pady=5)
 
     def on_button_click(self, value):
@@ -44,6 +45,9 @@ class CalculatorApp:
             except:
                 self.display.delete(0, tk.END)
                 self.display.insert(tk.END, "Error")
+        elif value == 'reset':
+            self.display.delete(0, tk.END)  # Clear the calculator display
+            self.plot_linear_function()     # Optionally reset the plot or other components
         else:
             self.display.insert(tk.END, value)
 
