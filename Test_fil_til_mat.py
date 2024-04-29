@@ -134,12 +134,15 @@ class Plus_operate(Operator):
 
 
 class Minus_operate(Operator):
+    global operatorState
+    def __init__(self):
+        operatorState = "minus"
     def do_operate(self, a) -> float:
         return self.a - self.b   
     def set_a(self,a):
         self.a=a
 
-class Gange_operate(Operator):
+'''class Gange_operate(Operator):
     def do_operate(self, a: float,b: float) -> float:
         return a * b  
     
@@ -147,7 +150,7 @@ class Devider_operate(Operator):
     def do_operate(self, a: float,b: float) -> float:
         return a / b  
 
-
+'''
 
 """
 Concrete Strategies implement the algorithm while following the base Strategy
@@ -167,9 +170,10 @@ if __name__ == "__main__":
     #print("Client: Strategy is set to reverse sorting.")
     context.operator = Minus_operate()
     context.lommeregner(5,3)
-
+    '''
     context.operator = Gange_operate()
     context.lommeregner(5,3)
 
     context.operator = Devider_operate()
     context.lommeregner(5,3)
+    '''
