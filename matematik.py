@@ -90,15 +90,15 @@ if __name__ == "__main__":
 
     context = Lommeregner(Plus_operate())
     #print("Client: Strategy is set to normal sorting.")
-    context.lommeregner(5,3)
+    context.lommeregner(5.567,3)
     print()
 
     #print("Client: Strategy is set to reverse sorting.")
     context.operator = Minus_operate()
-    context.lommeregner(5,3)
+    context.lommeregner(-5,3)
 
     context.operator = Gange_operate()
     context.lommeregner(5.567,3)
 
     context.operator = Devider_operate()
-    context.lommeregner(5,3)
+    context.lommeregner(5.567,3)
