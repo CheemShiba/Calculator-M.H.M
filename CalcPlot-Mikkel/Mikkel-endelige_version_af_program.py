@@ -11,6 +11,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
 import math
 
+#klassen der bruges som app/vindue
 class CalculatorApp:
     def __init__(self, master):
         self.master = master
