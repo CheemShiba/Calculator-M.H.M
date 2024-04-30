@@ -5,7 +5,7 @@ import numpy as np
 
 # Define the function
 def my_function(x):
-    return 620*x**3+21
+    return 2*x+3
 
 # Generate x values
 x_values = np.linspace(-5, 5, 20)  # Generate 100 points between -5 and 5
