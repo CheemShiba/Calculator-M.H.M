@@ -32,7 +32,7 @@ def beregn():
             res_label.config(text=result)
         except:
             regn = ""
-            res_label.config(text="Error")
+            res_label.config(text="Fejl")
     else:
         res_label.config(text="")
 
@@ -66,6 +66,10 @@ def update_graph():
 def clear_grafentry():
     func_input.delete(0, tk.END)
 
+def reset_graf():
+    ax.clear()  
+    fig.canvas.draw()
+
 res_label = Label(root, width=30, height=2, text="", font=("Arial", 20), bg="white", fg="black")
 res_label.place(x=40, y=10)
 
@@ -84,29 +88,30 @@ update_button.place(x=620, y=700)
 cleargraf = Button(root, text="clear",width=13, height=2, font=("Arial", 20, "bold"), bd=1, fg="dim gray", bg="gray12", command=clear_grafentry)
 cleargraf.place(x=1290, y=700)
 
-Button(root, text="C", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="red", bg="gray12", command=clear).place(x=10, y=100)
+buttonc = Button(root, text="C", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="red", bg="gray12", command=clear).place(x=10, y=100)
 
-Button(root, text="reset", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("reset")).place(x=150, y=100)
-Button(root, text="/", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("/")).place(x=290, y=100)
-Button(root, text="*", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("*")).place(x=430, y=100)
+resetgraf = Button(root, text="reset", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=reset_graf).place(x=150, y=100)
 
-Button(root, text="7", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("7")).place(x=10, y=200)
-Button(root, text="8", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("8")).place(x=150, y=200)
-Button(root, text="9", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("9")).place(x=290, y=200)
-Button(root, text="-", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("-")).place(x=430, y=200)
+buttondevidere = Button(root, text="/", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("/")).place(x=290, y=100)
+buttongange = Button(root, text="*", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("*")).place(x=430, y=100)
 
-Button(root, text="4", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("4")).place(x=10, y=300)
-Button(root, text="5", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("5")).place(x=150, y=300)
-Button(root, text="6", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("6")).place(x=290, y=300)
-Button(root, text="+", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("+")).place(x=430, y=300)
+button7 = Button(root, text="7", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("7")).place(x=10, y=200)
+button8 = Button(root, text="8", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("8")).place(x=150, y=200)
+button9 = Button(root, text="9", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("9")).place(x=290, y=200)
+buttonminus = Button(root, text="-", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("-")).place(x=430, y=200)
 
-Button(root, text="1", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("1")).place(x=10, y=400)
-Button(root, text="2", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("2")).place(x=150, y=400)
-Button(root, text="3", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("3")).place(x=290, y=400)
-Button(root, text="0", width=11, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("0")).place(x=10, y=500)
+button4 = Button(root, text="4", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("4")).place(x=10, y=300)
+button5 = Button(root, text="5", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("5")).place(x=150, y=300)
+button6 = Button(root, text="6", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("6")).place(x=290, y=300)
+buttonplus = Button(root, text="+", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("+")).place(x=430, y=300)
 
-Button(root, text=".", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show(".")).place(x=290, y=500)
-Button(root, text="=", width=5, height=3, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="orange", command=lambda: beregn()).place(x=430, y=400)
+button1 = Button(root, text="1", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("1")).place(x=10, y=400)
+button2 = Button(root, text="2", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("2")).place(x=150, y=400)
+button3 = Button(root, text="3", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("3")).place(x=290, y=400)
+button0 = Button(root, text="0", width=11, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show("0")).place(x=10, y=500)
+
+buttonpunktum = Button(root, text=".", width=5, height=1, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="gray12", command=lambda: show(".")).place(x=290, y=500)
+buttonligmed = Button(root, text="=", width=5, height=3, font=("Arial", 30, "bold"), bd=1, fg="dim gray", bg="orange", command=lambda: beregn()).place(x=430, y=400)
 
 fig = Figure(figsize=(6, 4.5), dpi=150)
 ax = fig.add_subplot(111)
