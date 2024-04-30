@@ -11,25 +11,26 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
 import math
 
-#klassen der bruges som app/vindue
+#definerer klassen det bruges til at håndtere brugergrænsefladen for vores projekt
 class CalculatorApp:
     def __init__(self, master):
         self.master = master
-        master.title("CalcPlot")
+        master.title("CalcPlot") # titlen på vinduet
 
-        # Calculator interface
+        # felt til at vise beregninger af lommeregneren, gælder også som input felt
         self.display = tk.Entry(master, width=20, font=('Arial', 14))
         self.display.grid(row=0, column=0, columnspan=4, pady=10)
 
-        # Entry for function input
+        # inputfelt til funktions indtastning
         self.func_input = tk.Entry(master, width=40, font=('Arial', 14))
         self.func_input.grid(row=0, column=4, columnspan=5, pady=10)
         self.func_input.insert(0, '2*x + 3')  # Default function
 
-        # Button to update the graph based on the input function
+        # knappen der updatere grafen baseret på den indtastede funktion
         update_button = tk.Button(master, text="Update Graph", command=self.update_graph)
         update_button.grid(row=1, column=4, columnspan=4)
         
+        #liste til knapper for lommeregneren, det indeholder altså de numerise og operations input
         buttons = [
             ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
             ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
@@ -38,21 +39,24 @@ class CalculatorApp:
             ('reset', 5, 0)
         ]
 
+        # opretter og placerer knapper
         for (text, row, col) in buttons:
             self.create_button(text, row, col)
 
-        # Matplotlib plot
+        # Matplotlib figuren tegnes for vi kan få den grafiske del
         self.fig = Figure(figsize=(5, 4), dpi=100)
         self.ax = self.fig.add_subplot(111)
         self.canvas = FigureCanvasTkAgg(self.fig, master=master)
         self.canvas.get_tk_widget().grid(row=2, column=4, rowspan=4, padx=20)
-        self.update_graph()
+        self.update_graph() # tegner grafen første gang
 
+    #metode til at skabe/oprette knabber
     def create_button(self, text, row, col):
         button = tk.Button(self.master, text=text, width=5, height=2,
                            command=lambda text=text: self.on_button_click(text))
         button.grid(row=row, column=col, padx=5, pady=5)
 
+    # metoden håndterer klikende på diverse knapper
     def on_button_click(self, value):
         if value == '=':
             try:
@@ -70,9 +74,10 @@ class CalculatorApp:
         else:
             self.display.insert(tk.END, value)
 
+    #metoden som gør vores graf opdateres baseret på den indtastede funktion
     def update_graph(self):
         try:
-            # Define the context for eval to restrict it to safe operations
+            # sikkerhed ift. evalure specielle funktioner
             safe_dict = {
                 'x': np.linspace(-10, 10, 400),
                 'np': np,
@@ -97,6 +102,7 @@ class CalculatorApp:
         except Exception as e:
             self.func_input.delete(0, tk.END)
             self.func_input.insert(0, f"Invalid function: {str(e)}")
+
 
 def main():
     root = tk.Tk()
